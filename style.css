@@ -1,0 +1,160 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(62, 63, 63);
+    /* background-color: rgb(126, 126, 248); */
+
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu{
+    width: 300px;
+    height: 300px;
+    /* background-color: white; */
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.toggle{
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    /* transition: background-color 0.2s ease-in-out; */
+    transition: all 0.2s ease-in-out;
+}
+
+.toggle.active{
+    box-shadow: 0 0 0 60px white,
+    0 0 0 68px white;
+    transform: rotate(135deg);
+    background-color: rgb(62, 63, 63);
+    color: white;
+}
+
+div.toggle ion-icon{
+    background: none;
+}
+ul li ion-icon{ 
+    background: none; 
+}
+
+ul li{
+    position: absolute;
+    list-style: none;
+    left: 10px;
+    transform: rotate(calc(360deg / 8 *var(--i))) translateX(100px);
+    transform-origin: 140px;
+    /* display: none; */
+    z-index: -1;
+    font-size: 17px;
+    background: none;
+    transition: all 0.2s ease-in-out;
+    
+}
+ul li a{
+    display: flex;
+    background: none;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    font-size: 1.75em;
+    color: rgb(62, 63, 63);
+    transform: rotate(calc(360deg / -8 *var(--i)));
+    /* background-color: aqua; */
+    border-radius: 50%;
+}
+
+ul.active li{
+    /* display: inline; */
+    z-index: 1;
+    transform: rotate(calc(360deg / 8 *var(--i))) translateX(40px);
+    transform-origin: 140px;
+}
+
+ul.active li.active{
+    /* box-shadow: 0 0 0 5px rgb(62, 63, 63); ; */
+    /* border-radius: 50%; */
+    /* background-color: rgb(76, 165, 4); */
+    transform: rotate(calc(360deg / 8 *var(--i))) translateX(12px);
+    
+    /* z-index: 1; */
+}
+
+.activebutton{
+    position: absolute;
+    left: calc(50%);
+    width: 100px;
+    height: 1px;
+    background: none;
+    pointer-events: none;
+    transition: 0.5s;
+    transform-origin: left;
+
+}
+
+.activebutton::before{
+    content: "";
+    position: absolute;
+    top: -27.5px;
+    left:72px;
+    width: 55px;
+    height: 55px;
+    background-color: rgb(62, 63, 63);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgb(52, 196, 52);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.menu.active .activebutton::before{
+    opacity: 1;
+    top: -27.5px;
+    left: -27.5px;
+    background-color: rgb(52, 196, 52);
+    box-shadow: 0 0 0 4px rgb(62, 63, 63);
+}
+
+.menu li:nth-child(2).active ~ .activebutton{
+    transform: rotate(0deg) translateX(-100px);
+}
+.menu li:nth-child(3).active ~ .activebutton{
+    transform: rotate(45deg) translateX(-100px);
+}
+.menu li:nth-child(4).active ~ .activebutton{
+    transform: rotate(90deg) translateX(-100px);
+}
+.menu li:nth-child(5).active ~ .activebutton{
+    transform: rotate(135deg) translateX(-100px);
+}
+.menu li:nth-child(6).active ~ .activebutton{
+    transform: rotate(180deg) translateX(-100px);
+}
+.menu li:nth-child(7).active ~ .activebutton{
+    transform: rotate(225deg) translateX(-100px);
+}
+.menu li:nth-child(8).active ~ .activebutton{
+    transform: rotate(270deg) translateX(-100px);
+}
+.menu li:nth-child(9).active ~ .activebutton{
+    transform: rotate(315deg) translateX(-100px);
+}
